@@ -1,0 +1,18 @@
+Question.
+Our application has to pass integration tests.
+Data source for these tests is located on the external test environment.
+However, this external test environment allows to run integration test suite against it one at a time.
+If several instances are executed against it, test environment crashes and tests will fail randomly.
+Please suggest possible solutions how to ensure integration tests will always pass.
+Describe pros and cons of these solutions.
+
+Answer.
+
+If there is no possibility / desire to repair the test environment,
+I suggest creating a Docker image with the required test environment,
+configuring and running the required number of containers, and running
+each instance of the integration test with access to a separate instance
+of the test environment running in the container with the data.
+
+Plus: Docker is lightweight, you can run the required number of test environments,
+ the tests are independent of each other, easy transfer of the image to the entire test environment.
