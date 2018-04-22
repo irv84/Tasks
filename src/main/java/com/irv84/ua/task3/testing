@@ -15,4 +15,4 @@ each instance of the integration test with access to a separate instance
 of the test environment running in the container with the data.
 
 Plus: Docker is lightweight, you can run the required number of test environments,
- the tests are independent of each other, easy transfer of the image to the entire test environment.
+the tests are independent of each other, easy transfer of the image to the entire test environment.
