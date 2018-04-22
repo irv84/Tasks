@@ -11,33 +11,30 @@ import static org.junit.Assert.assertEquals;
 public class testUser {
 
 @Test
-    public void testUserWithoutHobby(){
-        List<Hobby> hobbies=new ArrayList<Hobby>();
-    User user=new User("Ivan", "Ivanov", hobbies);
-    int countHobies=user.calculateHobbyCosts(user);
+    public void testEqualsTrue(){
+    User user1=new User("Ivan", "Ivanov");
+    User user2=new User("Ivan", "Ivanov");
 
-    assertEquals(0,countHobies);
-}
-
-    @Test
-    public void testUserOneHobby(){
-        List<Hobby> hobbies=new ArrayList<Hobby>();
-        hobbies.add(new Hobby("play"));
-        User user=new User("Ivan", "Ivanov", hobbies);
-        int countHobies=user.calculateHobbyCosts(user);
-
-        assertEquals(1,countHobies);
+    assertEquals(true, user1.equals(user2));
     }
 
     @Test
-    public void testUserTwoHobby(){
-        List<Hobby> hobbies=new ArrayList<Hobby>();
-        hobbies.add(new Hobby("playing guitar"));
-        hobbies.add(new Hobby("smoking"));
-        User user=new User("Ivan", "Ivanov", hobbies);
-        int countHobies=user.calculateHobbyCosts(user);
+    public void testEqualsFalse(){
+        User user1=new User("Ivan", "Ivanov");
+        User user2=new User("Ivan", "Ivano");
 
-        assertEquals(2,countHobies);
+        assertEquals(false, user1.equals(user2));
     }
+
+    @Test
+    public void testHashCode(){
+        User user1=new User("Ivan", "Ivanov");
+        User user2=new User("Ivan", "Ivanov");
+
+        assertEquals(user1.hashCode(), user2.hashCode());
+    }
+
+
+
 
 }
